@@ -1,0 +1,48 @@
+<!-- https://vuejsexamples.net -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>//vuejsexamples.net</title>
+    <!-- include vue -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+   	<h1>News for the people</h1>
+      <li v-for="post of article">
+        <!-- <p><b>ID:</b><br>{{post.ID}}</strong></p> -->
+        <p><b>Tittle:</b><br><strong>{{post.Tittle}}</strong></p>
+        <p><b>Image:</b><br><img :src="post.Image"></p>
+        <p><b>Paragraph:</b><br>{{post.Paragraph}}</p>
+        
+      </li>
+      
+    </div>
+  </body>
+  <script>
+  new Vue({
+    el: '#app',
+    created() {
+        this.fetchData(); 
+    },
+    data: {
+        article: []
+    },
+    methods: {
+        fetchData() {
+        axios.get('http://localhost:8000/article').then(response => {
+            this.article = response.data;
+            });
+        }
+    }
+});  
+  </script>
+  <style>
+    #app{
+      text-align: center;
+    }
+  </style>
+</html>
