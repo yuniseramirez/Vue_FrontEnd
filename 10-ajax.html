@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>//vuejsexamples.net</title>
     <!-- include vue -->
-    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue"></script> 
     <!-- axios -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script> 
   </head>
   <body>
     <div id="app">
@@ -33,7 +33,7 @@
     },
     methods: {
         fetchData() {
-        axios.get('http://localhost:8000/article').then(response => {
+        axios.get('http://localhost:8000/article').then(response => { //yunise-instead of using a method, maybe create a function 
             this.article = response.data;
             });
         }
